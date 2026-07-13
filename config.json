@@ -1,0 +1,160 @@
+{
+  "_comment": "ForgeLoopGRPO Config — Supports Qwen3.5-4B and Gemma-4-E4B-IT",
+  "_comment_model": "Set model_path to 'Qwen/Qwen3.5-4B' or 'google/gemma-4-E4B-it'",
+
+  "model_path": "Qwen/Qwen3.5-4B",
+  "dataset_path": "data/dataset.jsonl",
+  "output_dir": "outputs/forge_loop_grpo",
+  "num_generations": 8,
+  "per_device_train_batch_size": 1,
+  "gradient_accumulation_steps": 8,
+  "beta": 0.04,
+  "learning_rate": 5e-06,
+  "temperature": 0.9,
+  "top_p": 0.95,
+  "max_new_tokens": 2048,
+  "max_seq_length": 4096,
+  "num_train_epochs": 2,
+  "reward_weights": {
+    "thematic_consistency": {"enabled": true, "weight": 0.15},
+    "tone_consistency": {"enabled": true, "weight": 0.1},
+    "semantic_diversity": {"enabled": true, "weight": 0.1},
+    "fluency": {"enabled": true, "weight": 0.1},
+    "reasoning_depth": {"enabled": true, "weight": 0.05},
+    "lexical_diversity": {"enabled": true, "weight": 0.05},
+    "efficiency_coefficient": {"enabled": true, "weight": 0.05},
+    "directive_clarity": {"enabled": true, "weight": 0.05},
+    "context_alignment": {"enabled": true, "weight": 0.05},
+    "input_adaptation": {"enabled": true, "weight": 0.05},
+    "style_preservation": {"enabled": true, "weight": 0.05},
+    "creative_problem_solving": {"enabled": true, "weight": 0.03},
+    "cognitive_richness": {"enabled": true, "weight": 0.03},
+    "style_coherence": {"enabled": true, "weight": 0.03},
+    "exploratory_boldness": {"enabled": true, "weight": 0.03}
+  },
+  "soft_cull": {
+    "enabled": true,
+    "cull_percentage": 0.03,
+    "cull_penalty": -0.05
+  },
+  "degeneracy_auditor": {
+    "severe_looping": {"enabled": true, "penalty": -0.1},
+    "missing_think_tag": {"enabled": true, "penalty": -0.1},
+    "linguistic_explosion": {"enabled": true, "penalty": -0.1}
+  },
+  "think_tag_start": "<think>",
+  "think_tag_end": "</think>",
+  "gemma_thinking_enabled": false,
+  "gate": {
+    "enabled": true,
+    "warmup_steps": 0,
+    "historical_mean_alpha": 0.1
+  },
+  "vllm": {
+    "tensor_parallel_size": 1,
+    "gpu_memory_utilization": 0.50,
+    "max_num_seqs": 47,
+    "max_model_len": 4096,
+    "dtype": "auto",
+    "swap_space": 2
+  },
+  "performance": {
+    "embedding_device": "cpu",
+    "embedding_model": "all-MiniLM-L6-v2"
+  },
+  "gradient_checkpointing": true,
+  "lora": {
+    "r": 64,
+    "alpha": 128,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj", "k_proj", "v_proj", "o_proj",
+      "gate_proj", "up_proj", "down_proj"
+    ]
+  },
+  "save_steps": 500,
+  "eval_steps": 500,
+  "semantic_diversity_floor": 0.01,
+  "torch_compile": false,
+  "auto_merge_final": true,
+  "domain_constants": {
+    "vocab": [
+      "analysis", "synthesis", "evaluation", "conclusion", "hypothesis",
+      "evidence", "reasoning", "insight", "perspective", "framework",
+      "clarity", "truth", "understanding", "discovery", "inquiry",
+      "method", "principle", "theory", "concept", "abstraction",
+      "context", "nuance", "implication", "interpretation", "reflection",
+      "observation", "inference", "deduction", "induction", "validation",
+      "critique", "examination", "exploration", "investigation", "contemplation",
+      "deliberation", "judgment", "wisdom", "knowledge", "learning",
+      "growth", "development", "progress", "evolution", "transformation",
+      "adaptation", "resilience", "integrity", "purpose", "meaning"
+    ],
+    "anti_patterns": [
+      "as an ai", "i am an ai", "language model", "llm",
+      "artificial intelligence", "i cannot", "i'm sorry", "i apologize",
+      "i cannot fulfill", "i'm not able", "i don't have", "i have no",
+      "i cannot provide", "i cannot assist"
+    ],
+    "sentiment_markers": {
+      "positive": [
+        "excellent", "efficient", "optimal", "beneficial", "valuable",
+        "effective", "successful"
+      ],
+      "negative": [
+        "error", "failure", "flaw", "inefficient", "deficient",
+        "suboptimal", "incorrect"
+      ],
+      "neutral": [
+        "objective", "standard", "consistent", "uniform",
+        "stable", "balanced", "systematic"
+      ]
+    },
+    "action_verbs": [
+      "execute", "implement", "analyze", "evaluate", "modify",
+      "generate", "process", "maintain", "secure", "optimize",
+      "compile", "verify", "integrate", "deploy", "configure",
+      "validate", "structure", "direct", "lead", "guide"
+    ],
+    "rejection_markers": [
+      "cannot fulfill", "is unable to", "not supported",
+      "invalid request", "restricted", "outside the scope",
+      "terminated", "does not comply"
+    ],
+    "thematic_markers": [
+      "domain", "context", "framework", "structure", "core",
+      "pivotal", "fundamental", "origin", "basis", "background",
+      "scope", "influence", "parameter"
+    ],
+    "reasoning_markers": [
+      "therefore", "because", "thus", "hence", "consequently",
+      "furthermore", "additionally", "alternatively", "whereas",
+      "implicitly", "explicitly", "specifically", "in contrast"
+    ],
+    "absolute_markers": [
+      "must", "will", "shall", "cannot", "never", "always", "absolutely"
+    ],
+    "creative_markers": [
+      "imagine", "picture", "like a", "similar to", "analogy",
+      "what if", "reverse", "backwards", "different way", "another angle"
+    ],
+    "cognitive_modalities": {
+      "math": ["calculate", "equals", "plus", "minus", "sum", "ratio", "number"],
+      "logical": ["premise", "syllogism", "valid", "invalid", "fallacy", "assertion"],
+      "strategic": ["plan", "strategy", "tactic", "move", "position", "advantage"],
+      "empirical": ["observe", "data", "metric", "evidence", "test", "experiment"]
+    },
+    "structural_phrases": [
+      "initially", "firstly", "consequently", "subsequently",
+      "furthermore", "in conclusion", "summarizing", "moving forward",
+      "at this stage", "ultimately", "finally"
+    ]
+  },
+  "chat_template": {
+    "im_start": "<|im_start|>",
+    "im_end": "<|im_end|>",
+    "use_system_prompt": true,
+    "system_prompt_steps": 200,
+    "system_prompt_text": "You are a helpful, precise, and logically sound assistant focused on clear text generation and accurate instruction following."
+  }
+}
