@@ -1,3 +1,14 @@
+---
+title: ForgeLoopGRP0
+emoji: 🚀
+colorFrom: red
+colorTo: yellow
+sdk: static
+pinned: false
+license: mit
+short_description: GRPO training that runs on a single RTX4090 with vllm 0.22.1
+---
+
 # ForgeLoopGRPO
 
 **GRPO training that runs until you stop it (Strictly Linux Only).**
