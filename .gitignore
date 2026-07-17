@@ -63,4 +63,3 @@ htmlcov/
 *.bak
 /dev/shm/forge_loop_lora_live
 data/
-config.json
