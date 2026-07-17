@@ -2,7 +2,7 @@
 
 **GRPO training that runs until you stop it (Strictly Linux Only).**
 
-A practical, stable, single-GPU GRPO trainer built on vLLM 0.22.1 + a fully custom PyTorch stack. Train 3B–7B models (Qwen3.5-4B, Gemma-4-E2B-IT, and more) with reinforcement learning on a single RTX 4090 (or similar 24GB card) in **bf16**, without OOM headaches.
+A practical, stable, single-GPU GRPO trainer built on vLLM 0.25.1 + a fully custom PyTorch stack. Train 3B–7B models (Qwen3.5-4B, Gemma-4-E2B-IT, and more) with reinforcement learning on a single RTX 4090 (or similar 24GB card) in **bf16**, without OOM headaches.
 
 Most GRPO implementations assume datacenter hardware. This one was built for real people with one gaming GPU, a clean Linux setup, and a specific problem they want to solve.
 
