@@ -28,7 +28,7 @@ This project is the result of pushing through those barriers.
 |---------------------|------------------------|
 | **Operating System**| Linux Native Only (Ubuntu/Debian/RHEL) |
 | Hardware            | RTX 4090 24GB + AMD Ryzen 9 7950X3D |
-| Environment         | CUDA 13 + vLLM 0.22.1 |
+| Environment         | CUDA 13 + vLLM 0.25.1 |
 | Precision           | **bf16** (not 4-bit)   |
 | Generations         | 8 × 2048 tokens        |
 | Total steps         | **1000**               |
@@ -112,7 +112,7 @@ MAX_JOBS=8 pip install flash-attn==2.4.2 --no-build-isolation
 pip install --upgrade nvidia-nccl-cu12
 ```
 
-> **Note:** The engine has been explicitly verified on **vLLM 0.22.1** running on **CUDA 13**. Limiting `MAX_JOBS` matches parallel processing limits on consumer layouts during native wheel compilation.
+> **Note:** The engine has been explicitly verified on **vLLM 0.25.1** running on **CUDA 13**. Limiting `MAX_JOBS` matches parallel processing limits on consumer layouts during native wheel compilation.
 
 ---
 
