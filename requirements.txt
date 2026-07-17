@@ -3,7 +3,7 @@
 # CUDA 13.0, Python 3.11+
 
 # ========== CORE ==========
-torch==2.12.1
+torch==2.13.0
 transformers==5.10.2
 accelerate==1.13.0
 numpy==2.3.5
@@ -13,7 +13,7 @@ pandas==3.0.3
 # vLLM for batched inference with LoRA hot-swap
 # NOTE: LoRARequest API changed significantly across versions.
 # This exact version was verified for the swap_manager generation loop.
-vllm==0.24.0
+vllm==0.25.1
 
 # ========== LoRA & MODEL MERGING ==========
 peft==0.19.1
