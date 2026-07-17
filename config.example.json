@@ -14,7 +14,7 @@
   "top_p": 0.95,
   "max_new_tokens": 2048,
   "max_seq_length": 4096,
-  "num_train_epochs": 2,
+  "num_train_epochs": 3,
   "reward_weights": {
     "thematic_consistency": {"enabled": true, "weight": 0.15},
     "tone_consistency": {"enabled": true, "weight": 0.1},
