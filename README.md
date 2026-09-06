@@ -2,7 +2,7 @@
 
 **GRPO training that runs until you stop it (Strictly Linux Only).**
 
-A practical, stable, single-GPU GRPO trainer built on vLLM 0.25.1 + a fully custom PyTorch stack. Train 3B–7B models (Qwen3.5-4B, Gemma-4-E2B-IT, and more) with reinforcement learning on a single RTX 4090 (or similar 24GB card) in **bf16**, without OOM headaches.
+A practical, stable, single-GPU GRPO trainer built on vLLM 0.26.0 + a fully custom PyTorch stack. Train 3B–7B models (Qwen3.5-4B, Gemma-4-E2B-IT, and more) with reinforcement learning on a single RTX 4090 (or similar 24GB card) in **bf16**, without OOM headaches.
 
 Most GRPO implementations assume datacenter hardware. This one was built for real people with one gaming GPU, a clean Linux setup, and a specific problem they want to solve.
 
@@ -28,7 +28,7 @@ This project is the result of pushing through those barriers.
 |---------------------|------------------------|
 | **Operating System**| Linux Native Only (Ubuntu/Debian/RHEL) |
 | Hardware            | RTX 4090 24GB + AMD Ryzen 9 7950X3D |
-| Environment         | CUDA 13 + vLLM 0.25.1 |
+| Environment         | CUDA 13 + vLLM 0.2+.0 |
 | Precision           | **bf16** (not 4-bit)   |
 | Generations         | 8 × 2048 tokens        |
 | Total steps         | **1000**               |
@@ -112,7 +112,7 @@ MAX_JOBS=8 pip install flash-attn==2.4.2 --no-build-isolation
 pip install --upgrade nvidia-nccl-cu12
 ```
 
-> **Note:** The engine has been explicitly verified on **vLLM 0.25.1** running on **CUDA 13**. Limiting `MAX_JOBS` matches parallel processing limits on consumer layouts during native wheel compilation.
+> **Note:** The engine has been explicitly verified on **vLLM 0.26.0** running on **CUDA 13**. Limiting `MAX_JOBS` matches parallel processing limits on consumer layouts during native wheel compilation.
 
 ---
 
