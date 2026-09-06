@@ -13,7 +13,7 @@ pandas==3.0.3
 # vLLM for batched inference with LoRA hot-swap
 # NOTE: LoRARequest API changed significantly across versions.
 # This exact version was verified for the swap_manager generation loop.
-vllm==0.25.1
+vllm==0.26.0
 
 # ========== LoRA & MODEL MERGING ==========
 peft==0.19.1
